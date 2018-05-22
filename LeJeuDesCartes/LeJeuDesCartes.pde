@@ -10,7 +10,7 @@ void setup() {
   size(1280, 720);
   frameRate(60);
   textSize(25);
-  
+
   for (int i = 0; i < 5; i++) {
     Composant temp = new Composant(i);
     compo.add(compo.size(), temp);
@@ -20,15 +20,22 @@ void setup() {
 
 void draw() {
   display();
-  
+
+
+
   if (defense != -1 && priseCompo != -1) {
     defense = -1;
     priseCompo = -1;
     println("Tu ne peux pas faire deux choses en même temps");
   }
-  
+
   for (int i = 0; i < deckJ1.size(); i++) {
     if (deckJ1.get(i).def < 1) {
+      if (deckJ1.get(i).capture != -1) {
+        compo.get(deckJ1.get(i).capture).capture = -1;
+        compo.get(deckJ1.get(i).capture).campCapture = null;
+        compo.get(deckJ1.get(i).capture).time = 0;
+      }
       deckJ1.remove(i);
       replaceCard();
       break;
@@ -40,6 +47,11 @@ void draw() {
   }
   for (int i = 0; i < deckJ2.size(); i++) {
     if (deckJ2.get(i).def < 1) {
+      if (deckJ2.get(i).capture != -1) {
+        compo.get(deckJ2.get(i).capture).capture = -1;
+        compo.get(deckJ2.get(i).capture).campCapture = null;
+        compo.get(deckJ2.get(i).capture).time = 0;
+      }
       deckJ2.remove(i);
       replaceCard();
       break;
@@ -49,22 +61,21 @@ void draw() {
     deckJ2.get(i).display(i, 0);
     //deckJ2.get(i).debug();
   }
-  
+
 
   if (attack != -1 && defense != -1) {
     attackConfirmed();
   }
-  
-   if (attack != -1 && priseCompo != -1) {
+
+  if (attack != -1 && priseCompo != -1) {
     compoConfirmed();
   }
-  
+
   for (int i = 0; i < compo.size(); i++) {
     compo.get(i).display(i);
-    
   }
-  
-  
+
+
 
   println(scoreJ1);
   println(scoreJ2);
