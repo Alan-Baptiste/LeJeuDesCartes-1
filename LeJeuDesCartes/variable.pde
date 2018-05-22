@@ -4,7 +4,6 @@ int hgt = 720;
 int manaJ1 = 3;
 int manaJ2 = 3;
 
-
 ArrayList<Card> deckJ1 = new ArrayList<Card>();
 ArrayList<Card> deckJ2 = new ArrayList<Card>();
 ArrayList<Composant> compo = new ArrayList<Composant>();
