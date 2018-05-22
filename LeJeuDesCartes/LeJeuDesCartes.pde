@@ -5,8 +5,6 @@
 //1 pour ajouter une cartes
 //2 pour l'enlever
 //enter pour passer un tour
-//prendre 3 composants pour gagner
-
 
 void setup() {
   size(1280, 720);
