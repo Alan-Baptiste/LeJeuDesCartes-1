@@ -6,22 +6,23 @@ void timer() {
       } else {
         if (compo.get(i).campCapture == "J1") {
           scoreJ1++;
-          for (int j = 0; j < deckJ1.size(); j++) {
-            if  ( deckJ1.get(j).capture > i) {
-              deckJ1.get(j).capture--;
-            }
-            deckJ1.get(compo.get(i).capture).capture = -1;
-          }
+          deckJ1.get(compo.get(i).capture).capture = -1;
         } else if (compo.get(i).campCapture == "J2") {
           scoreJ2++;
+          deckJ2.get(compo.get(i).capture).capture = -1;
+        }
 
-          for (int j = 0; j < deckJ2.size(); j++) {
-            if  ( deckJ2.get(j).capture > i) {
-              deckJ2.get(j).capture--;
-            }
-            deckJ2.get(compo.get(i).capture).capture = -1;
+        for (int j = 0; j < deckJ2.size(); j++) {
+          if  ( deckJ2.get(j).capture > i) {
+            deckJ2.get(j).capture--;
           }
         }
+        for (int j = 0; j < deckJ1.size(); j++) {
+          if  ( deckJ1.get(j).capture > i) {
+            deckJ1.get(j).capture--;
+          }
+        }
+
         compo.remove(i);
       }
     }
