@@ -1,10 +1,7 @@
 //LeJeuDesCartes 
 //v3.0 Omega
 //By Alan & Baptiste
-//
-//1 pour ajouter une cartes
-//2 pour l'enlever
-//enter pour passer un tour
+
 
 void setup() {
   size(1280, 720);
@@ -75,7 +72,7 @@ void draw() {
     compo.get(i).display(i);
   }
 
-
+  
 
   println(scoreJ1);
   println(scoreJ2);
