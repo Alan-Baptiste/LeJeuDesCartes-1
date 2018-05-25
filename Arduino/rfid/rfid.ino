@@ -19,14 +19,24 @@ void setup() {
 void loop() {
   //si une carte est présente et qu'on la lit
   if (mfrc522.PICC_IsNewCardPresent() && mfrc522.PICC_ReadCardSerial() ) {
-    Serial.print("UID: ");
 
     //pour chaque caractère du TAG
     for (byte i = 0; i < mfrc522.uid.size; i++) {
       //ajoute le caractère convertie en hexadécimal
       UID += String(mfrc522.uid.uidByte[i], HEX);
     } 
-    Serial.println(UID); 
+    if (UID == "b0131da4") {
+      Serial.println('1'); 
+    } else if (UID == "103c7da6") {
+      Serial.println('0');
+    }
+
+    UID = "";
+
+    
+
+    
+    
     UID = "";
  
     delay(1000);
