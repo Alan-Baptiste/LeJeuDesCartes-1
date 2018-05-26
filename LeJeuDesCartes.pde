@@ -1,9 +1,14 @@
+
 //LeJeuDesCartes 
 //v3.0 Omega
 //By Alan & Baptiste
 
 
+
 void setup() {
+  String portName = Serial.list()[1];
+  myPort = new Serial(this, portName, 9600);
+
   size(1280, 720);
   frameRate(60);
   textSize(25);
@@ -72,9 +77,19 @@ void draw() {
     compo.get(i).display(i);
   }
 
+  if ( myPort.available() > 0) {  
+    val = myPort.readStringUntil('\n');
+  } 
   
+  if (val != null && val.charAt(0) == '1') {
+    ajout();
+  } else if (val != null && val.charAt(0) == '0') {
+    suppression();
+  }
+  
+  val = "non";
 
-  println(scoreJ1);
-  println(scoreJ2);
-  println();
+  /*println(scoreJ1);
+   println(scoreJ2);
+   println();*/
 }
