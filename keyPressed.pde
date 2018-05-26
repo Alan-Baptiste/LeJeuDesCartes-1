@@ -22,7 +22,4 @@ void keyPressed() {
     if (turn%2 == 1 && manaJ1 >=3 ) manaJ1 -= 3;
     else if (turn%2 == 0 && manaJ2 >=3) manaJ2 -=3;
   }
-
-
-  
 }
