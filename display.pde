@@ -1,5 +1,6 @@
 void display() {
   background(0);
+  
   noStroke();
   fill(255);
   text("Tours: " + str(turn), 10, 25);
