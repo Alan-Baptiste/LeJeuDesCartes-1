@@ -6,7 +6,7 @@
 
 
 void setup() {
-  String portName = Serial.list()[1];
+  String portName = Serial.list()[1]; // mettre 0 quand joue sans arduino
   myPort = new Serial(this, portName, 9600);
 
   size(1280, 720);
