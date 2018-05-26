@@ -1,3 +1,7 @@
+import processing.serial.*;
+Serial myPort;
+String val = "non";
+
 int wth = 1280;
 int hgt = 720;
 
